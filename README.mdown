@@ -16,4 +16,4 @@ LoadImpact Results
 ----
 http://loadimpact.com/load-test/perfnegligent.herokuapp.com-69d082493256f6e23503a574a1ac9f0f
 
-[Imgur](http://i.imgur.com/xOVMkgK.png)
+![Imgur](http://i.imgur.com/xOVMkgK.png)
