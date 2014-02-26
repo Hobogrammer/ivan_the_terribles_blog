@@ -1,9 +1,19 @@
+Performance Challenge
+====
+Details: Take this poorly optimized blog and make it faster. Person with the quiest loading time wins.
+
+Scoring formula
 
 
 Baseline test in development env:
+---
 Rails 3: VERY SLOW, Chrome crashes before I can get a number
 Rails 4.0.3: `91596.4 ms`
 add eagerloading of comments: `10759.3 ms`
 
 
+LoadImpact Results
+----
+http://loadimpact.com/load-test/perfnegligent.herokuapp.com-69d082493256f6e23503a574a1ac9f0f
 
+[Imgur](http://i.imgur.com/xOVMkgK.png)
