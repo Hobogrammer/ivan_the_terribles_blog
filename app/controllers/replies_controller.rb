@@ -21,6 +21,15 @@ class RepliesController < ApplicationController
     end
   end
 
+  def show_partial
+    @comment = Comment.find(params[:id])
+    @replies = @comment.replies
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /replies/new
   # GET /replies/new.json
   def new
@@ -40,7 +49,7 @@ class RepliesController < ApplicationController
   # POST /replies
   # POST /replies.json
   def create
-    @reply = Reply.new(params[:reply])
+    @reply = Reply.new(reply_params)
 
     respond_to do |format|
       if @reply.save
@@ -79,5 +88,11 @@ class RepliesController < ApplicationController
       format.html { redirect_to replies_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def reply_params
+    params.require(:post).permit(:body)
   end
 end

@@ -14,6 +14,8 @@ IvanTheTerriblesBlog::Application.configure do
   # Compress JavaScripts and CSS
   config.assets.compress = true
 
+  config.assets.js_compressor = :uglifier
+
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
 
@@ -32,6 +34,7 @@ IvanTheTerriblesBlog::Application.configure do
 
   # See everything in the log (default is :info)
   # config.log_level = :debug
+  config.eager_load = true
 
   # Prepend all log lines with the following tags
   # config.log_tags = [ :subdomain, :uuid ]

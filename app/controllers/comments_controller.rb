@@ -18,6 +18,17 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @comment }
+      format.js
+    end
+  end
+
+  def show_partial
+    puts params
+    @post = Post.find(params[:id])
+    @comments = @post.comments
+
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -40,7 +51,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(params[:comment])
+    @comment = Comment.new(comment_params)
 
     respond_to do |format|
       if @comment.save
@@ -79,5 +90,11 @@ class CommentsController < ApplicationController
       format.html { redirect_to comments_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def comment_params
+    params.require(:post).permit(:body)
   end
 end
